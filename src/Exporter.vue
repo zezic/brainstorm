@@ -8,41 +8,42 @@
 </template>
 
 <script>
-import * as docx from 'docx'
+import JSZip from 'jszip'
+import Docxtemplater from 'docxtemplater'
 import { saveAs } from 'file-saver'
 import Dropdown from './Dropdown'
+import template from './assets/template.docx'
 
 const formats = {
   DOCX: 1,
   TXT: 2
 }
 
-// topic name
-// the main typing section
-// The type of timer and its length that was chosen for the task
-// the date and time the task was created.
-
 const generateDOCX = ({ title, text, timerType, timerLength, startedAt }) => {
-  const doc = new docx.Document()
-  doc.addParagraph(new docx.Paragraph(`Topic name: ${title}`))
-  doc.addParagraph(new docx.Paragraph(`Datetime: ${startedAt}`))
-  doc.addParagraph(new docx.Paragraph(`Timer type: ${timerType}`))
-  doc.addParagraph(new docx.Paragraph(`Timer length: ${timerLength}`))
-  doc.addParagraph(new docx.Paragraph(''))
-  text.split('\n').map(chunk => {
-    doc.addParagraph(new docx.Paragraph(chunk))
+  var zip = new JSZip(template)
+  var doc = new Docxtemplater()
+  doc.loadZip(zip)
+  doc.setData({ title, text, timerType, timerLength, startedAt })
+
+  try {
+    doc.render()
+  }
+  catch (error) {
+    throw error
+  }
+
+  var blob = doc.getZip().generate({
+    type: 'blob',
+    mimeType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
   })
 
-  var packer = new docx.Packer()
-  packer.toBlob(doc).then(blob => {
-    saveAs(blob, "Brainstorm.docx")
-  })
+  saveAs(blob, "Brainstorm.docx")
 }
 
 const generateTXT = ({ title, text, timerType, timerLength, startedAt }) => {
   let doc = ''
   doc += `Topic name: ${title}\n`
-  doc += `Datetime: ${startedAt}\n`
+  doc += `Date: ${startedAt}\n`
   doc += `Timer type: ${timerType}\n`
   doc += `Timer length: ${timerLength}\n`
   doc += '\n'

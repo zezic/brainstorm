@@ -9,5 +9,5 @@ Describe usage here.
 ## Build
 
 ```bash
-vue build --targed lib --name Brainstorm src/Brainstorm.vue
+vue build --target lib --name Brainstorm src/Brainstorm.vue
 ```
