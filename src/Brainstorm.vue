@@ -210,9 +210,6 @@ export default {
 </script>
 
 <style>
-.brainstorm-app {
-  margin: 100px;
-}
 .brainstorm-app,
 .brainstorm-app * {
   box-sizing: border-box !important;
