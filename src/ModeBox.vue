@@ -32,9 +32,11 @@ export default {
 .mode-box {
   display: flex;
   align-items: center;
+  cursor: default;
+  user-select: none;
 }
 .mode-box:not(.active) {
-  pointer-events: none;
+  /* pointer-events: none; */
   opacity: .5;
 }
 .mode-box .mode-display {

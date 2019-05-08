@@ -6,6 +6,7 @@
       </start-button>
       <template slot='middle'>
         <mode-box
+          @click.native='wordCountMode = false'
           v-if='state === states.IDLE || !wordCountMode'
           title="Clock Timer"
           :display='clockTimerDisplay'
@@ -24,6 +25,7 @@
         </mode-box>
         <toggle-switch v-if='state === states.IDLE' v-model='wordCountMode' class='switch'></toggle-switch>
         <mode-box
+          @click.native='wordCountMode = true'
           v-if='state === states.IDLE || wordCountMode'
           title="Word Count"
           :display='wordCountDisplay'
