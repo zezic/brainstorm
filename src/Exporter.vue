@@ -42,11 +42,11 @@ const generateDOCX = ({ title, text, timerType, timerLength, startedAt }) => {
 
 const generateTXT = ({ title, text, timerType, timerLength, startedAt }) => {
   let doc = ''
-  doc += `Topic name: ${title}\n`
-  doc += `Date: ${startedAt}\n`
-  doc += `Timer type: ${timerType}\n`
-  doc += `Timer length: ${timerLength}\n`
-  doc += '\n'
+  doc += `Topic name: ${title}\r\n`
+  doc += `Date: ${startedAt}\r\n`
+  doc += `Timer type: ${timerType}\r\n`
+  doc += `Timer length: ${timerLength}\r\n`
+  doc += '\r\n'
   doc += text
   const blob = new Blob([doc], { type: 'text/plain;charset=utf-8' })
   saveAs(blob, "Brainstorm.txt");
