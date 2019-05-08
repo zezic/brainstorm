@@ -36,6 +36,19 @@ new Vue({
 
 ## Development
 
+[Vue CLI](https://cli.vuejs.org/) is required to develop/build this app.
+
+Clone the repository and cd into it:
+```bash
+git clone git@github.com:zezic/brainstorm.git
+cd brainstorm
+```
+
+Install dependencies:
+```bash
+npm install # or yarn
+```
+
 Serve Vue with hot reload:
 ```bash
 vue serve src/Brainstorm.vue
@@ -44,9 +57,12 @@ vue serve src/Brainstorm.vue
 Generate distributive:
 ```bash
 vue build --target lib --name Brainstorm src/Brainstorm.vue
+cp demo-template.html dist/demo.html
 ```
 
-Push demo to gh-pages repository:
+Push changes to repository and demo to gh-pages branch:
 ```bash
+git commit -a -m "Commit title"
+git push
 git subtree push --prefix dist origin gh-pages
 ```
