@@ -60,7 +60,7 @@
       ></exporter>
     </toolbar>
     <title-input :font='font.value' v-model='title'></title-input>
-    <text-input :font='font.value' v-model='text' :lock='state !== states.TYPING'></text-input>
+    <text-input :font='font.value' v-model='text' :lock='state === states.FINISHED'></text-input>
   </div>
 </template>
 
@@ -197,6 +197,10 @@ export default {
   },
   watch: {
     text (newText) {
+      if (newText.length > 0 && this.state === states.IDLE) {
+        this.run()
+        return
+      }
       if (!this.wordCountMode) { return }
       if (this.state !== states.TYPING) { return }
       const count = countWords(newText)
