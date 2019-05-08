@@ -84,7 +84,6 @@ const fontOptions = [
   { title: 'Monospace', value: 'monospace' }
 ]
 const clockTimerOptions = [
-  { title: '5 seconds', value: 5 },
   { title: '5 minutes', value: 300 },
   { title: '10 minutes', value: 600 },
   { title: '15 minutes', value: 900 },
@@ -92,7 +91,6 @@ const clockTimerOptions = [
   { title: '30 minutes', value: 1800 }
 ]
 const wordCountOptions = [
-  { title: '5 words', value: 5 },
   { title: '200 words', value: 200 },
   { title: '300 words', value: 300 },
   { title: '400 words', value: 400 },
