@@ -57,7 +57,7 @@ vue serve src/Brainstorm.vue
 Generate distributive:
 ```bash
 vue build --target lib --name Brainstorm src/Brainstorm.vue
-cp demo-template.html dist/demo.html
+cp demo-template.html dist/index.html
 ```
 
 Push changes to repository and demo to gh-pages branch:
