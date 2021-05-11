@@ -2,7 +2,7 @@
 
 Brainstorm is a simple app written in Vue.js. It's a brainstorming app which allow user to input words and then download resulting text. It supports word count limit and time limit modes.
 
-[Demo](https://zezic.github.io/brainstorm/demo.html)
+[Demo](https://zezic.github.io/brainstorm/)
 
 ## Usage
 
